@@ -2,6 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
+console.log(process.env.ACCESS_TOKEN);
+
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
@@ -43,7 +45,7 @@ export default defineConfig({
   ],
   define: {
     "process.env": {
-      ACCESS_TOKEN: process.env.ACCESS_TOKEN,
+      ACCESS_TOKEN: process.env.VITE_ACCESS_TOKEN,
     },
   },
 });
