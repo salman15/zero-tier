@@ -1,16 +1,25 @@
-import { Section, Text } from "@/components";
+import { Section, TabBar } from "@/components";
 import { useFetchZeroTier } from "@/fetch";
-import { FC } from "react";
+import { mockNetwork } from "@/mocks";
+import { FC, useEffect } from "react";
+import { NetworkTab } from "./NetworkTab";
 
 export const Network: FC = () => {
-  const { data, error } = useFetchZeroTier("network");
-  console.log("data", data);
-  console.log("error", error);
+  const [fetchNetwork] = useFetchZeroTier("network");
+  useEffect(() => {
+    fetchNetwork();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const tabs = mockNetwork.map((network) => ({
+    id: network.id,
+    name: network.config.name,
+    content: <NetworkTab tab={network} />,
+  }));
+
   return (
     <Section>
-      <Text as="h1" variant="title">
-        Hello world
-      </Text>
+      <TabBar tabs={tabs} />
     </Section>
   );
 };
