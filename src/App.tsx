@@ -1,12 +1,9 @@
-import { PageLayout, Section, Text } from "@/components";
+import { PageLayout } from "@/components";
+import { Network } from "./modules";
 
 const App = () => (
   <PageLayout>
-    <Section>
-      <Text as="h1" variant="title">
-        Hello world
-      </Text>
-    </Section>
+    <Network />
   </PageLayout>
 );
 
