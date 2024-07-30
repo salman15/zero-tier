@@ -9,6 +9,7 @@ export const fetchZeroTier = async (endpoint: string) => {
       headers: {
         Authorization: `token ${import.meta.env.VITE_ACCESS_TOKEN}`,
         "Content-Type": "application/json",
+        "X-Frame-Options": "SAMEORIGIN",
       },
       method: "GET",
     }

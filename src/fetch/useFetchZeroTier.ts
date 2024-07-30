@@ -1,17 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { fetchZeroTier } from "./fetchZeroTier";
 
 export const useFetchZeroTier = (endpoint: string) => {
   const [data, setData] = useState<unknown | null>(null);
-  const [error, setError] = useState<Error | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    fetchZeroTier(endpoint)
-      .then((data) => setData(data))
-      .catch((error) => setError(error))
-      .finally(() => setLoading(false));
-  }, [endpoint]);
+  const onFetch = async () => {
+    setLoading(true);
+    try {
+      const data = await fetchZeroTier(endpoint);
+      setData(data);
+    } catch (error) {
+      setError(JSON.stringify(error));
+    }
+    setLoading(false);
+  };
 
-  return { data, error, loading };
+  return [onFetch, { data, error, loading }] as const;
 };
