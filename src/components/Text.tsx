@@ -8,8 +8,8 @@ const VARIANTS = {
 };
 
 type TextProps = PropsWithChildren<{
-  as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "li";
-  variant: keyof typeof VARIANTS;
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "li";
+  variant?: keyof typeof VARIANTS;
 }>;
 
 export const Text: FC<TextProps> = ({
