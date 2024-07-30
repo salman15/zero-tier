@@ -8,7 +8,7 @@ const VARIANTS = {
 };
 
 type TextProps = PropsWithChildren<{
-  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "li";
+  as?: React.ElementType;
   variant?: keyof typeof VARIANTS;
 }>;
 
