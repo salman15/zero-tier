@@ -1,30 +1,21 @@
-# React + TypeScript + Vite
+# ZeroTier assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I've implemented a `simple browser-based UI + device listing data` that has the following features:
 
-Currently, two official plugins are available:
+- Uses an `ACCESS_TOKEN` to connect to the zero tier api
+- List of available network devices
+- Insights into available networks devices
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech used
 
-## Expanding the ESLint configuration
+I've used the following tech:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React
+- ViteJS
+- TailwindCSS
+- Twin.Macro
+- DaisyUI
+- TypeScript
+- Emotion
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Because it was asked in the assignment and my preferred JS framework I've used `React` with `TypeScript`. I've used `ViteJS` for it's performance during development, `TailwindCSS` for because it's flexibility and speed when setting up new apps. `Twin.Macro` because it's prevents cluttering in the classnames and DaisyUI to once again speed up setting up an UI.
