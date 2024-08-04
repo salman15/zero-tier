@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetchZeroTier, FetchZeroTierResponseType } from "./fetchZeroTier";
 
 export const useFetchZeroTier = (endpoint: string) => {
+  const initialCallDone = useRef(false);
   const [data, setData] = useState<FetchZeroTierResponseType | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!initialCallDone.current) {
+      initialCallDone.current = true;
+      return;
+    }
+    onFetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onFetch = async () => {
     setLoading(true);
@@ -17,5 +27,5 @@ export const useFetchZeroTier = (endpoint: string) => {
     setLoading(false);
   };
 
-  return [onFetch, { data, error, loading }] as const;
+  return [{ data, error, loading }, onFetch] as const;
 };
