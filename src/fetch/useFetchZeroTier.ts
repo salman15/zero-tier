@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { fetchZeroTier } from "./fetchZeroTier";
+import { fetchZeroTier, FetchZeroTierResponseType } from "./fetchZeroTier";
 
 export const useFetchZeroTier = (endpoint: string) => {
-  const [data, setData] = useState<unknown | null>(null);
+  const [data, setData] = useState<FetchZeroTierResponseType | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 

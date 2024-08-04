@@ -15,7 +15,7 @@ type TabBarProps = {
 };
 
 export const TabBar: FC<TabBarProps> = ({ tabs }) => {
-  const [activeTab, setActiveTab] = useState(tabs[0].id);
+  const [activeTab, setActiveTab] = useState(tabs[0]?.id);
 
   const activeTabContent = tabs.find((tab) => tab.id === activeTab)?.content;
   return (

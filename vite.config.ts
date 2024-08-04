@@ -43,9 +43,4 @@ export default defineConfig({
       },
     }),
   ],
-  define: {
-    "process.env": {
-      ACCESS_TOKEN: process.env.VITE_ACCESS_TOKEN,
-    },
-  },
 });
